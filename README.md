@@ -1,2 +1,2 @@
-# IAMZOMBIE
-My first video game project on IronHack
+# I AM ZOMBIE
+My first video game project at IronHack.
