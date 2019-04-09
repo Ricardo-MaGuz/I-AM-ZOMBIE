@@ -1,0 +1,188 @@
+@font-face {
+  font-family: 'bigPixel';
+  src: url('../fonts/big_pixel_shadow_demo-webfont.woff2') format('woff2'),
+       url('../fonts/big_pixel_shadow_demo-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/* TV Settings */
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  /* background: url(../img/bg.jpg) */
+}
+ul{
+  list-style: none;
+}
+#main{
+  width: 1100px;
+  height: 728px;
+  /* background: url(../img/tv.png) left no-repeat; */
+  background-size: 100%;
+  display: block;
+  position: relative;
+  margin: auto;
+}
+#inner-tv{
+  top: 64px;
+  position: absolute;
+  left: 61px;
+  overflow: hidden;
+}
+#wides{
+  opacity: 0;
+}
+#inner-tv,canvas{
+  width: 763px;
+  height: 550px;
+  background-color: black;
+}
+.fade-in-out{
+  animation: fade-in 8s ease-in-out;
+  position: absolute;
+  opacity: 0;
+}
+ /* Menu Settings */
+ #main-menu{
+   background: url(../img/main-menu.jpg) left top;
+   width:763px;
+   height:550px;
+   display: none;
+   z-index: 0;
+   position: absolute;
+}
+#logo{
+  animation: logo 2s;
+  position: relative;
+  left: 300px;
+  top: 10px;
+}
+#hand{
+  position: absolute;
+    right: 0px;
+    bottom: 0px;
+    animation: hand 3s;
+}
+nav{
+  margin-left: 100px;
+}
+nav ul li{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+nav ul li button{
+  background: none;
+  border: none;
+  color:#fff;
+  font-size: 2rem;
+  font-family: 'bigPixel','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  overflow: hidden;
+  opacity: 1;
+  display: inline-flex;
+}
+nav ul li button img{
+  display: inline-flex;
+  margin-right: 20px;
+  opacity: 1;
+}
+button,  button:hover{
+  border: none;
+  outline: 0;
+  cursor: pointer; 
+  opacity:.5;
+}
+.animateBtn{
+  animation: menuBtn 3s infinite;
+}
+#blackOut{
+  animation: blackOut .3s infinite;
+  display: none;
+  position: absolute;
+  width:763px;
+  height:550px;
+  z-index: 1000;
+  background-image: url(../img/noise.gif);
+  background-color: transparent;
+}
+ /* Animations */
+@keyframes fade-in {
+  0% {
+  opacity: 0;
+  } 
+  50% {
+  opacity: 100;
+  }
+  100%{
+    opacity: 0;
+  }
+ }
+ @keyframes logo {
+  0% {
+   opacity: 0;
+   top:-300px;
+   left: -300px;
+  }
+  50% {
+    opacity:.5;
+  }
+   100% {
+    left: 300px;
+    top: 10px;
+  }
+ }
+ @keyframes menuBtn {
+  0% {
+  opacity:.3;
+  }
+  50% {
+    opacity:1;
+    }
+    100%{
+      opacity: .3;
+    }
+ }
+
+ @keyframes hand {
+  0% {
+  right: 0px;
+  bottom: -300px;
+  }
+  20% {
+    bottom: -240px;
+  }
+  40% {
+    bottom: -180px;
+  }
+  60% {
+    bottom: -120px;
+  }
+  80% {
+    bottom: -60px;
+  }
+  100% {
+    right: 0px;
+    bottom: 0px;
+  }
+ }
+
+ @keyframes blackOut {
+  0% {
+    background-image: url(../img/noise.gif);
+    background-color: transparent;
+    opacity:1;
+  }
+  50%{ 
+    background-image: none;
+    background-color: black;
+    opacity: 1;
+  }
+  100% {
+    background-image: url(../img/noise.gif);
+    background-color: transparent;
+    opacity: 0;
+  }
+ }
