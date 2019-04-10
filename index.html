@@ -10,24 +10,26 @@
   </head>
   <body>
     <section id="main">
+      <audio id="main-menu-audio" src="audio/mainmenu.mp3" type="audio/mpeg" loop="loop"></audio>
+      <audio id="game-start" src="audio/startGame.mp3" type="audio/mpeg"></audio>
+      <audio id="in-game-music" src="audio/inGame.mp3" type="audio/mpeg" loop="loop"></audio>
       <div id="inner-tv">
-          <!-- <img id="iron-drugs" class="" src="img/ironDrugs.gif" alt="Winners Don't Use Drugs">
-          <img id="wides" class="" src="img/wides.gif" alt="A Game by Ricardo MaGuz (Siegricho)"> -->
+          <img id="iron-drugs" class="" src="img/ironDrugs.gif" alt="Winners Don't Use Drugs">
+          <img id="wides" class="" src="img/wides.gif" alt="A Game by Ricardo MaGuz (Siegricho)">
           <div id="blackOut"></div>
           <section id="main-menu" class="">
-            <img id="logo" src="img/iamzombie.gif" alt="">
+            <img id="logo" src="img/iamzombie.gif" alt="I AM ZOMBIE">
             <nav>              
               <ul>
-                <!-- De momento se pone la clase por si da tiempo de animar el Click -->
-                <li><button id="single-player" class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">One player</button></li>
-                <li><button class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Two players</button></li>
-                <li><button class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Controls</button></li>
+                <li><button class="main-menu-btn menu-start-game"><img src="img/menu-bullet.gif" alt="">One player</button></li>
+                <li><button class="main-menu-btn menu-start-game"><img src="img/menu-bullet.gif" alt="">Two players</button></li>
+                <li><button id="menu-controls-btn" class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Controls</button></li>
                 <li><button class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Credits</button></li>
               </ul>
             </nav>
             <img id="hand" src="img/hand.gif" alt="">
+            <img id ="menu-controls" class="" src="img/controls.gif" alt="Controls">
           </section>
-        <!--WIDTH 763px , HEIGHT 550px-->
       </div>
     </section>
   </body>

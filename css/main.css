@@ -11,7 +11,7 @@
   padding: 0px;
 }
 body{
-  /* background: url(../img/bg.jpg) */
+  background: url(../img/bg.jpg)
 }
 ul{
   list-style: none;
@@ -19,7 +19,7 @@ ul{
 #main{
   width: 1100px;
   height: 728px;
-  /* background: url(../img/tv.png) left no-repeat; */
+  background: url(../img/tv.png) left no-repeat;
   background-size: 100%;
   display: block;
   position: relative;
@@ -29,22 +29,38 @@ ul{
   top: 64px;
   position: absolute;
   left: 61px;
+  display: block;
+  width: 762px;
+  height: 550px;
   overflow: hidden;
 }
 #wides{
   opacity: 0;
 }
-#inner-tv,canvas{
-  width: 763px;
-  height: 550px;
-  background-color: black;
+#inner-tv{
+  background-color: #333;
 }
 .fade-in-out{
   animation: fade-in 8s ease-in-out;
   position: absolute;
   opacity: 0;
 }
+
  /* Menu Settings */
+
+ .grave{
+  animation: grave 2s;
+  bottom:0px;
+  left:0px;
+  z-index: 1000;
+  position: absolute;
+ }
+ .bye-grave{
+  animation: bye-grave 2s;
+  bottom:-520px;
+  left:0px;
+ }
+ 
  #main-menu{
    background: url(../img/main-menu.jpg) left top;
    width:763px;
@@ -108,6 +124,9 @@ button,  button:hover{
   background-image: url(../img/noise.gif);
   background-color: transparent;
 }
+audio{
+  display: none;
+}
  /* Animations */
 @keyframes fade-in {
   0% {
@@ -168,6 +187,51 @@ button,  button:hover{
     bottom: 0px;
   }
  }
+
+ @keyframes grave {
+  0% {
+  bottom: -520px;
+  }
+  20% {
+    bottom: -4160px;
+  }
+  40% {
+    bottom: -312px;
+  }
+  60% {
+    bottom: -208px;
+  }
+  80% {
+    bottom: -104px;
+  }
+  100% {
+    left: 0px;
+    bottom: 0px;
+  }
+ }
+
+ @keyframes bye-grave {
+  0% {
+    bottom: 0px;
+  }
+  20% {
+    bottom: -104px;
+  }
+  40% {
+    bottom: -208px;
+  }
+  60% {
+    bottom: -312px;
+  }
+  80% {
+    bottom: -4160px;
+  }
+  100% {
+    left: 0px;
+    bottom: -520px;
+  }
+ }
+
 
  @keyframes blackOut {
   0% {
