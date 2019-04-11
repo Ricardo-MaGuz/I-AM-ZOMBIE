@@ -1,6 +1,7 @@
 //Menus and Ending Code
 
 //Variables
+
 const innerTV = document.getElementById("inner-tv")
 const ironDrugs = document.getElementById("iron-drugs")
 const wides = document.getElementById("wides")
@@ -13,14 +14,11 @@ const menuControls = document.getElementById("menu-controls")
 
 //Functions
 const menuStartGameF = function (){
-  innerTV.appendChild(document.createElement("CANVAS"))
-  const canvas = document.querySelector('canvas')
-  canvas.setAttribute('width', '763');
-  canvas.setAttribute('height', '550');
-  
   setTimeout(function(){
+    const canvas = document.getElementById('canvas')
     blackOut.style.display = "block"
     document.getElementById("game-start").play();
+    canvas.style.display = "block"
   },000); 
   setTimeout(function(){
     document.getElementById("main-menu-audio").remove()
@@ -30,6 +28,7 @@ const menuStartGameF = function (){
   setTimeout(function(){
     document.getElementById("game-start").remove()
     document.getElementById("in-game-music").play()
+    start()
   },4000)
 }
 
@@ -40,12 +39,12 @@ window.onload = function() { //Optimizar con CurrentTime onda el cronometro
     setTimeout(function(){
       ironDrugs.remove()
       wides.classList.add("fade-in-out");
-    }, 8000); //cambiar a 8K
+    }, 000); //cambiar a 8K
     setTimeout(function(){
       wides.remove()
       document.getElementById("main-menu-audio").play()
       mainMenu.style.display = "block"
-    },16000);  //Cambiar a 16k
+    },1000);  //Cambiar a 16k
 }
 
 menuStartGame.addEventListener('click', menuStartGameF)
