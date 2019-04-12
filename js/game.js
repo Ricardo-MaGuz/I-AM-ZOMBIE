@@ -1,7 +1,6 @@
-
-
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
 //Clases
-var ctx = canvas.getContext('2d')
 function Floor(){
     this.x = 0;
     this.y = 0;
@@ -9,48 +8,44 @@ function Floor(){
     this.height = canvas.height;
     this.img = new Image()
     this.img.src = "img/bg1.gif"
-
-
-    this.img.onload = function(){
-        this.draw()
-    }.bind(this)
-
-    this.move = function(){
+    this.img.onload = () => {this.draw()}
+    this.move = () => {
         this.x = this.x-7
         if(this.x < -canvas.width) this.x = 0
     }
-
-    this.draw = function(){
-        this.move();
+    this.draw = () => {
+        this.move()
         ctx.drawImage(this.img, this.x,this.y, this.width,this.height)
         ctx.drawImage(this.img,this.x + canvas.width,this.y,this.width,this.height)
     }
 } 
+
+//Backgrounds
+
 function Board(){
-    this.x = 0;
-    this.y = 0;
-    this.width = canvas.width;
-    this.height = canvas.height;
-    this.img = new Image();
-    this.img.src = "img/0.gif"
+    this.x = 0
+    this.y = 0
+    this.width = canvas.width
+    this.height = canvas.height
+    this.img = new Image()
+    this.img.src = "img/sky.gif"
 
 
-    this.img.onload = function(){
+    this.img.onload = ()=>{
         this.draw()
-    }.bind(this)
+    }
 
-    this.move = function(){
+    this.move = () => {
         this.x = this.x-3
         if(this.x < -canvas.width) this.x = 0
     }
 
-    this.draw = function(){
+    this.draw = () => {
         this.move()
-        ctx.drawImage(this.img, this.x,this.y, this.x ,this.height)
-        ctx.drawImage(this.img,4024,this.y,this.width,this.height)
-    };
+        ctx.drawImage(this.img, this.x,this.y, this.width,this.height)
+        ctx.drawImage(this.img,this.x + canvas.width,this.y,this.width,this.height)
+    }
 } 
-
 
 function Buildings(){
     this.x = 0
@@ -59,189 +54,168 @@ function Buildings(){
     this.height = canvas.height
     this.img = new Image()
     this.img.src = "img/buildings.gif"
-    this.distance = 0
-    this.recorded = Math.floor(frames / 60)
+    this.img.onload = ()=> {this.draw()}
 
-    this.img.onload = function(){
-        this.draw()
-    }.bind(this)
-
-    this.move = function(){
+    this.move = ()=>{
         this.x = this.x -4
         if(this.x < -canvas.width) this.x = 0
-    };
-
-    this.draw = function(){
-        this.move();
+    }
+    this.draw = () =>{
+        this.move()
         ctx.drawImage(this.img, this.x,this.y, this.width,this.height)
         ctx.drawImage(this.img,this.x + canvas.width,this.y,this.width,this.height)
-    };
-
+    }
 } 
 
-
-//Character
 
 function Zombie(){
     this.x = 0
     this.y = 0
-    this.z = 171
-    this.w = 150
+    this.z = 170
+    this.w = 200
     this.width = 171
     this.height = 200
     
-    this.animate = function(){
-
-        if(this.z < 280){   
-        this.z += 4
-    }
-        ctx.drawImage(this.img,this.width*this.x,this.height*this.y,this.width,this.height,this.w,this.z,this.width,this.height);
+    this.animate = () => { if(this.z < 270){    this.z += 3}
         
-        if (frames % 4 === 0){
+        ctx.drawImage(this.img,
+            this.width*this.x,
+            0,
+            this.width,
+            this.height,
+            this.w,
+            this.z,
+            this.width,
+            this.height);
+
+        if (frames % 5 === 0){
         this.x++
-    }
-        if(this.x>5){
+        }
+        else if(this.x>5){
           this.x=0
-          this.y++
-        }
-        if(this.y>4){
-          this.y=0
         }
     }
-    this.img = document.createElement("img");
-    this.img.src = "img/zombie1Run.gif";
-
-    this.zombieJump = function(){
-        if(zombie.z === 280){
-        zombie.z -= 2000
-        jump.colY = 100
-    }else{
-        zombie.z = zombie.z;
-        }
-    }
-
+    this.img = document.createElement("img")
+    this.img.src = "img/zombie1Run.gif"
+    this.zombieJump = () =>{ zombie.z -= 2100 }
  }
 
  function Jump(){
     this.x = 171
     this.y = 200
-    this.colX = 150
-    this.colY = 280
     this.width = 171
     this.height = 200
-    this.img = new Image();
-    this.img.src = "img/jump.gif"
-
-    this.img.onload = function(){
-        this.draw()
-    }.bind(this)
+    this.img = new Image()
+    this.img.src = "img/jump.png"
 
     this.draw = function(){
         this.y = this.y + 4
-        this.colY = this.colY + 4
         ctx.drawImage(this.img, this.x,this.y, this.width,this.height)
         if (this.y === 272){
-            zombie.z = 280
+            zombie.z = 270
             this.y = 100
-            this.colY = 280
         }
     }
 } 
 
-// Obstacles
-
+//It's a Trap
 function Trap(){
     this.x = canvas.width
-    this.y = 450
-    this.width = 75
-    this.height = 100
+    this.y = 430
+    this.width = 100
+    this.height = 120
     this.img = new Image()
     this.img.src = "img/trap.gif"
 
-    this.img.onload = function(){
+    this.img.onload = () => {
         this.draw()
-    }.bind(this);
+    }
 
-    this.draw = function(){
+    this.draw = () => {
         this.x = this.x - 7
         ctx.drawImage(this.img, this.x,this.y, this.width,this.height)
     }
-
+    //Collition
     this.isTouching = function(zombie){
         return ((this.x - 100) < (zombie.w / 2) + (zombie.width / 2)) &&
                ((this.x - 100) + (this.width / 2) > (zombie.w / 2)) &&
                (this.y < zombie.z + zombie.height) &&
-               (this.y + this.height > zombie.z);
-    };
+               (this.y + this.height > zombie.z)
+    }
 
 } 
-
-//Variables
-
+//Variables 
 var board = new Board()
 var buildings = new Buildings()
 var floor = new Floor()
 var zombie = new Zombie()
 var jump = new Jump()
-var enemies = []
+var traps = []
 var interval
 var frames = 0
 
-//Auxiliar Functions
-
+//Aux 
 function gameOver(){
+
     stop();
+    document.getElementById("game-over-audio").play()
     clearInterval(interval)
-    ctx.fillText('Perdiste broooo', 50, 50)
-    
+    gameOverScreen.style.display = "block"
+    addEventListener('keydown', function(e){
+        if(e.keyCode === 13){
+            location.reload();
+        }
+    })
 }
 
-function generateEnemies (){
-    var x = [150, 250, 320];
+function trapMaker (){
+    var x = [150,200, 300, 350];
     var rand = x[Math.floor(Math.random() * x.length)]
     if(!(frames % rand === 0)) return
     var trap = new Trap ()
-    enemies.push(trap)
+    traps.push(trap)
 }
 
 function deleteEnemies(){
-    if(enemies.length === 5){
-        enemies.splice(0,1)
+    if(traps.length === 5){
+        traps.splice(0,1)
     }
 }
 
 function drawEnemies(){
-    enemies.forEach(function(trap){
+    traps.forEach(function(trap){
         trap.draw()
     })
 }
 
 function checkCollition(){
-    enemies.forEach(function(trap){
+    traps.forEach(function(trap){
      if(trap.isTouching(zombie)){
         gameOver()
         }   
+        
     })
 }
 
 //Main Flow
 
 function update(){
-    generateEnemies()
+    trapMaker()
     deleteEnemies()
     frames++
-    ctx.clearRect(0,0,canvas.width, canvas.height);
+    ctx.clearRect(0,0,canvas.width, canvas.height)
     board.draw()
     buildings.draw()
     floor.draw()
     drawEnemies()
 
-    if (zombie.z != 280){
+    if (zombie.z != 270){
+        
         jump.draw()
         
     }else {
         zombie.animate()
-        zombie.z = 280;
+        zombie.z = 270;
     }
 
     checkCollition()
@@ -262,4 +236,12 @@ function stop(){
 }
 
 
-  
+//Event Listeners 
+addEventListener('keydown', function(e){
+    if(e.keyCode === 32){
+        e.stopPropagation();
+        e.preventDefault();
+        zombie.zombieJump()
+        document.getElementById("jump-audio").play()
+    }
+})

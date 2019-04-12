@@ -1,7 +1,7 @@
 //Menus and Ending Code
 
 //Variables
-
+const gameOverScreen = document.getElementById("game-over")
 const innerTV = document.getElementById("inner-tv")
 const ironDrugs = document.getElementById("iron-drugs")
 const wides = document.getElementById("wides")
@@ -11,6 +11,8 @@ const menuStartGame2 = document.querySelectorAll(".menu-start-game")[1]
 const blackOut = document.getElementById("blackOut")
 const menuControlsBtn = document.getElementById("menu-controls-btn")
 const menuControls = document.getElementById("menu-controls")
+const menuCredits = document.getElementById("credits")
+const menuCreditsBtn = document.getElementById("main-credits-btn")
 
 //Functions
 const menuStartGameF = function (){
@@ -28,27 +30,29 @@ const menuStartGameF = function (){
   setTimeout(function(){
     document.getElementById("game-start").remove()
     document.getElementById("in-game-music").play()
+  },3000)
+  setTimeout(function(){
     start()
   },4000)
 }
 
 //Event Listeners
   //Screen Progression
-window.onload = function() { //Optimizar con CurrentTime onda el cronometro
+window.onload = function() { 
     ironDrugs.classList.add("fade-in-out");
     setTimeout(function(){
       ironDrugs.remove()
       wides.classList.add("fade-in-out");
-    }, 000); //cambiar a 8K
+    }, 8000); //cambiar a 8K
     setTimeout(function(){
       wides.remove()
       document.getElementById("main-menu-audio").play()
       mainMenu.style.display = "block"
-    },1000);  //Cambiar a 16k
+    },16000);  //Cambiar a 16k
 }
 
 menuStartGame.addEventListener('click', menuStartGameF)
-menuStartGame2.addEventListener('click', menuStartGameF)
+
 menuControlsBtn.addEventListener('click', function (){
   menuControls.classList.add("grave")
   menuControls.classList.remove("bye-grave")
@@ -57,3 +61,10 @@ menuControlsBtn.addEventListener('click', function (){
   }
 })
 
+menuCreditsBtn.addEventListener('click', function (){
+  menuCredits.classList.add("grave")
+  menuCredits.classList.remove("bye-grave")
+  document.onkeypress=function(){
+    menuCredits.classList.add("bye-grave")
+  }
+})

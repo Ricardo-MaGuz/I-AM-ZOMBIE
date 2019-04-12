@@ -13,7 +13,25 @@
       <audio id="main-menu-audio" src="audio/mainmenu.mp3" type="audio/mpeg" loop="loop"></audio>
       <audio id="game-start" src="audio/startGame.mp3" type="audio/mpeg"></audio>
       <audio id="in-game-music" src="audio/inGame.mp3" type="audio/mpeg" loop="loop"></audio>
+      <audio id="game-over-audio" type="audio/mpeg"  src="audio/gameOver.mp3"></audio>
+      <audio id="jump-audio"  src="audio/jump.mp3"></audio>
       <div id="inner-tv">
+        <article id="credits" class="">
+          <div>
+              <h2>Credits</h2>
+          <ul>
+            <li><a href="https://free-game-assets.itch.io/2d-zombie-free-sprite" target="_blank">Zombie Sprite</a></li>
+            <li><a href="https://external-preview.redd.it/6s0KERJP4E2pB3oaHZupnrLCZ1d3V3kC_mBiuFf2E4c.png?auto=webp&s=922f57f0f532db3cd86ce8a24c1d076100e89ac3" target="_blank">Main menu Background</a></li>
+            <li><a href="https://www.reddit.com/r/PixelArt/comments/1a80s0/zombie_pixel_art_xpost_from_rzombies/" target="_blank">Main Menu hand</a></li>
+            <li><a href="https://craftpix.net/product/destroyed-city-parallax-backgrounds/"target="_blank">City Background</a></li>
+            <li><a href="https://www.dafont.com/es/zombiebites.font"target="_blank">Zombie Bite Font</a></li>
+            <li><a href="https://www.dafont.com/es/pixelplay.font"target="_blank">Big Pixel Font</a></li>
+            <li><a href="https://www.youtube.com/watch?v=NXTQ3j-gK8I&list=PL615E9D99BDE970FF&index=2"target="_blank">Main menu: Boss Battle Theme - Zombies Ate My Neighbors</a></li>
+            <li><a href="https://www.youtube.com/watch?v=8fCx1m0tQT0&t=41s"target="_blank">In Game: Vanilla Ghost House - Super Mario World</a></li>
+          </ul>
+        </div>
+        </article>
+          <div id="game-over"></div>
           <img id="iron-drugs" class="" src="img/ironDrugs.gif" alt="Winners Don't Use Drugs">
           <img id="wides" class="" src="img/wides.gif" alt="A Game by Ricardo MaGuz (Siegricho)">
           <div id="blackOut"></div>
@@ -21,14 +39,14 @@
             <img id="logo" src="img/iamzombie.gif" alt="I AM ZOMBIE">
             <nav>              
               <ul>
-                <li><button class="main-menu-btn menu-start-game"><img src="img/menu-bullet.gif" alt="">One player</button></li>
-                <li><button class="main-menu-btn menu-start-game"><img src="img/menu-bullet.gif" alt="">Two players</button></li>
+                <li><button class="main-menu-btn menu-start-game"><img src="img/menu-bullet.gif" alt="">Game Start</button></li>
                 <li><button id="menu-controls-btn" class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Controls</button></li>
-                <li><button class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Credits</button></li>
+                <li><button id ="main-credits-btn" class="main-menu-btn"><img src="img/menu-bullet.gif" alt="">Credits</button></li>
               </ul>
             </nav>
             <img id="hand" src="img/hand.gif" alt="">
             <img id ="menu-controls" class="" src="img/controls.gif" alt="Controls">
+            
           </section>
           <canvas id="canvas" width="763" height="550">
             

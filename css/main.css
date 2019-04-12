@@ -9,9 +9,14 @@
 *{
   margin: 0px;
   padding: 0px;
+  text-decoration: none;
+  color:white;
 }
 body{
-  background: url(../img/bg.jpg)
+  background: url(../img/bg.jpg);
+  font-family: 'bigPixel';
+  font-weight: normal;
+  font-style: normal;
 }
 ul{
   list-style: none;
@@ -130,6 +135,51 @@ audio{
 canvas{
   display: none;
 }
+#game-over{
+  display: none;
+  background: url(../img/gameOver.gif);
+  width: 783px;
+  height: 550px;
+  position: absolute;
+  z-index: 1000;
+  animation: gameOver 3s ;
+}
+/* Credits */
+#credits{
+width: 831px;
+height: 550px;
+background: url(../img/credits.gif) left no-repeat;
+display: block;
+}
+#credits{
+  width: 831px;
+  height: 550px;
+  background: url(../img/credits.gif) left no-repeat;
+  display: block;
+  position: absolute;
+  bottom: -520px;
+  }
+  #credits.grave{
+    bottom: 0px;
+    }
+    #credits.bye-grave{
+      bottom: -520px;
+      }
+  #credits div{
+    position: absolute;
+    right: 157px;
+    top: 90px;
+    width: 500px;
+    }
+    h2{
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2rem;
+    }
+    #credits ul li{
+      margin-bottom: 20px;
+      text-align: center;
+    }
  /* Animations */
 @keyframes fade-in {
   0% {
@@ -251,5 +301,18 @@ canvas{
     background-image: url(../img/noise.gif);
     background-color: transparent;
     opacity: 0;
+  }
+ }
+
+ @keyframes gameOver{
+  0% {
+   background: url(../img/gameOver.gif);
+    background-color: transparent;
+    opacity:0;
+  }
+  100% {
+    background: url(../img/gameOver.gif);
+    background-color: transparent;
+    opacity: 1;
   }
  }
