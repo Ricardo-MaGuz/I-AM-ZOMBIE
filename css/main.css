@@ -180,6 +180,9 @@ display: block;
       margin-bottom: 20px;
       text-align: center;
     }
+    #credits ul li a:hover{
+      color:#d6eba3;
+    }
  /* Animations */
 @keyframes fade-in {
   0% {
